@@ -19,6 +19,7 @@ import HttpApi from 'i18next-http-backend';
 import i18next from 'i18next'
 import EN from '../locale/en/translation.json'
 import KH from '../locale/kh/translation.json'
+import ScrollingButton from './ScrollingButton'
 
 NProgress.configure({ showSpinner: false });
 i18next
@@ -103,6 +104,7 @@ function MyApp({ Component, pageProps }) {
         <ChakraProvider theme={theme, colortheme} >
           <Layout>
             <Component {...pageProps} />
+            <ScrollingButton />
             <MessengerCustomerChat
               pageId="1586031671709848"
               appId="292640049631112"
