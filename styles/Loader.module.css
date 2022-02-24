@@ -1,0 +1,14 @@
+
+/* .loaderContainer{
+    display: flex;
+    position: absolute;
+    top: 0;
+    height: 800vh;
+    width: 6000px; 
+} */
+.loaderContainer img {
+    display: inline-block;
+    margin: auto;
+    width: 200px;
+
+}
