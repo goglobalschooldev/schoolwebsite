@@ -64,7 +64,7 @@ export default function AcademicCalendar() {
                             color="brand.100"
                             textAlign="center"
                         >
-                            FALL SEMESTER OF 2020
+                            2021-2022 ACADEMIC YEAR
                         </Text>
                     </MotionBox>
                 </Box>
