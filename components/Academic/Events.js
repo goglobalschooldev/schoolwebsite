@@ -182,19 +182,19 @@ export let Event = [
     },
     {
         id: 30,
-        title: 'emester I Examination- Khmer Programme',
+        title: 'Semester I Examination- Khmer Programme',
         date: new Date('2022-03-23'),
         color: '#0581C3'
     },
     {
         id: 31,
-        title: 'emester I Examination- Khmer Programme',
+        title: 'Semester I Examination- Khmer Programme',
         date: new Date('2022-03-24'),
         color: '#643413'
     },
     {
         id: 32,
-        title: 'emester I Examination- Khmer Programme',
+        title: 'Semester I Examination- Khmer Programme',
         date: new Date('2022-03-25'),
         color: '#EEBF1D'
     },
