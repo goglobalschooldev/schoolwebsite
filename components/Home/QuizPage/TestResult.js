@@ -38,73 +38,6 @@ export default function TestResult({
     const [getTestFor, setGetTestFor] = useState('');
 
     function opentModel() {
-        switch (curreneEDU) {
-            case 'Kindergarten':
-                setGetTestFor("Reception")
-                break;
-            case 'Reception':
-                setGetTestFor("Year 1")
-                break;
-            case 'Year 1':
-                setGetTestFor("Year 2")
-                break;
-            case 'Year 2':
-                setGetTestFor("Year 3")
-                break;
-            case 'Year 3':
-                setGetTestFor("Year 4")
-                break;
-            case 'Year 4':
-                setGetTestFor("Year 5")
-                break;
-            case 'Year 5':
-                setGetTestFor("Year 6")
-                break;
-            case 'Year 6':
-                setGetTestFor("Year 7")
-                break;
-            case 'Year 7':
-                setGetTestFor("Year 8")
-                break;
-            case 'Year 8':
-                setGetTestFor("Year 9")
-                break;
-            case 'Grade 2':
-                setGetTestFor("Grade 3")
-                break;
-            case 'Grade 3':
-                setGetTestFor("Grade 4")
-                break;
-            case 'Grade 4':
-                setGetTestFor("Grade 5")
-                break;
-            case 'Grade 5':
-                setGetTestFor("Grade 6")
-                break;
-            case 'Grade 6':
-                setGetTestFor("Grade 7")
-                break;
-            case 'Grade 7':
-                setGetTestFor("Grade 8")
-                break;
-            case 'Grade 8':
-                setGetTestFor("Grade 9")
-                break;
-            case 'Grade 9':
-                setGetTestFor("Grade 10")
-                break;
-            case 'Grade 10':
-                setGetTestFor("Grade 11")
-                break;
-            case 'Grade 11':
-                setGetTestFor("Grade 12")
-                break;
-            default:
-                setGetTestFor('')
-                break;
-        }
-
-
         if (programme === "Foreign Languages Programme") {
             setConsiderScore(45);
             setPassScore(50);
@@ -116,6 +49,76 @@ export default function TestResult({
         }
 
     }
+
+    useEffect(() => {
+        if (curreneEDU) {
+            switch (curreneEDU) {
+                case 'Kindergarten':
+                    setGetTestFor("Reception")
+                    break;
+                case 'Reception':
+                    setGetTestFor("Year 1")
+                    break;
+                case 'Year 1':
+                    setGetTestFor("Year 2")
+                    break;
+                case 'Year 2':
+                    setGetTestFor("Year 3")
+                    break;
+                case 'Year 3':
+                    setGetTestFor("Year 4")
+                    break;
+                case 'Year 4':
+                    setGetTestFor("Year 5")
+                    break;
+                case 'Year 5':
+                    setGetTestFor("Year 6")
+                    break;
+                case 'Year 6':
+                    setGetTestFor("Year 7")
+                    break;
+                case 'Year 7':
+                    setGetTestFor("Year 8")
+                    break;
+                case 'Year 8':
+                    setGetTestFor("Year 9")
+                    break;
+                case 'Grade 2':
+                    setGetTestFor("Grade 3")
+                    break;
+                case 'Grade 3':
+                    setGetTestFor("Grade 4")
+                    break;
+                case 'Grade 4':
+                    setGetTestFor("Grade 5")
+                    break;
+                case 'Grade 5':
+                    setGetTestFor("Grade 6")
+                    break;
+                case 'Grade 6':
+                    setGetTestFor("Grade 7")
+                    break;
+                case 'Grade 7':
+                    setGetTestFor("Grade 8")
+                    break;
+                case 'Grade 8':
+                    setGetTestFor("Grade 9")
+                    break;
+                case 'Grade 9':
+                    setGetTestFor("Grade 10")
+                    break;
+                case 'Grade 10':
+                    setGetTestFor("Grade 11")
+                    break;
+                case 'Grade 11':
+                    setGetTestFor("Grade 12")
+                    break;
+                default:
+                    setGetTestFor('')
+                    break;
+            }
+        }
+    }, [curreneEDU])
 
     return (
         <Box mt="20px">
@@ -141,9 +144,8 @@ export default function TestResult({
                         <img src="../Placement Test Latter-01.png" />
                     </Center>
                     <Box
-                        style={{ position: 'absolute' }}
+                        style={{ position: 'absolute', zIndex: 1 }}
                         mt="-850px"
-                        style={{ zIndex: 1 }}
                     >
                         <Box
                             fontSize="20px"
@@ -219,8 +221,9 @@ export default function TestResult({
                                         {
                                             // overal
                                             sub1 >= considerScore ? getTestFor :
-                                                sub2 ? getTestFor : curreneEDU
+                                                sub2 >= considerScore ? getTestFor : curreneEDU
                                         }
+
                                     </td>
                                 </tr>
 
