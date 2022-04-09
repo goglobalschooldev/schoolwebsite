@@ -51,6 +51,7 @@ export default function TestResult({
     }
 
     useEffect(() => {
+        opentModel()
         if (curreneEDU) {
             switch (curreneEDU) {
                 case 'Kindergarten':
@@ -134,7 +135,7 @@ export default function TestResult({
                     </Button>}
                     content={() => componentRef.current}
                     documentTitle={`${curreneEDU} Placement Test Result-${stuName}.pdf`}
-                    onBeforeGetContent={() => opentModel()}
+                    // onBeforeGetContent={() => opentModel()}
                 />
 
             </Center>
@@ -144,8 +145,9 @@ export default function TestResult({
                         <img src="../Placement Test Latter-01.png" />
                     </Center>
                     <Box
-                        style={{ position: 'absolute', zIndex: 1 }}
+                        style={{ position: 'absolute' }}
                         mt="-850px"
+                        style={{ zIndex: 1}}
                     >
                         <Box
                             fontSize="20px"
