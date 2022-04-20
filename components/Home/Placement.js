@@ -53,8 +53,7 @@ export default function Placement() {
                                     letterSpacing="0px"
                                     fontFamily="Segoe UI"
                                 >
-                                    <p>Entertainment that you love. </p>
-                                    <p>With a little help fromt Google.</p>
+                                    <p>Test and Match your capability here with us at Go Global School. </p>
                                 </Box>
                                 <Box>
                                     <SignInForm />
