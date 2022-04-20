@@ -145,7 +145,7 @@ export default function TestResult({
                         <img src="../Placement Test Latter-01.png" />
                     </Center>
                     <Box
-                        style={{ position: 'absolute' }}
+                        // style={{ position: 'absolute' }}
                         mt="-850px"
                         style={{ zIndex: 1}}
                     >
@@ -222,8 +222,9 @@ export default function TestResult({
                                     <td>
                                         {
                                             // overal
-                                            sub1 >= considerScore ? getTestFor :
-                                                sub2 >= considerScore ? getTestFor : curreneEDU
+                                            sub1 < considerScore || sub2 < considerScore ? curreneEDU :
+                                                sub1 >= considerScore ? getTestFor :
+                                                    sub2 >= considerScore ? getTestFor : curreneEDU
                                         }
 
                                     </td>
