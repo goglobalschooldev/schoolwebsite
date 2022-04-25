@@ -563,9 +563,9 @@ export const academicYear21_22 = [
     },
     {
         url:
-            "../gallery/Khmer new year 2022/Khmer New Year.jpg",
+            "../gallery/Khmer new year 2022/Khmer New Year (1).jpg",
         title: "Khmer new year 2022",
         thumbUrl:
-            "../gallery/Khmer new year 2022/Khmer New Year.jpg"
+            "../gallery/Khmer new year 2022/Khmer New Year (1).jpg"
     },
 ]
