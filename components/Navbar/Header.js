@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <Center color="white" h="43px" p="5px" fontSize="14px" bg="brand.100">
-            <Flex width={{ sm: "100%", md: "100%", lg: "98%", xl: "85%",'2xl':'85%' }} >
+            <Flex width={{ sm: "100%", md: "100%", lg: "98%", xl: "85%", '2xl': '85%' }} >
                 <Box >
                     <CopyToClipboard text="+855 78 900 998"
                         onCopy={() =>
@@ -60,7 +60,7 @@ const Header = () => {
                     <a target='_blank' href="https://www.youtube.com/channel/UCZgj2YSaSfRtrmLNe9s126w">
                         <Icon ml="3px" fontSize="20px" as={IoLogoYoutube} />
                     </a>
-                    
+
                 </Box>
                 <Spacer />
                 <Flex >
@@ -90,7 +90,7 @@ const Header = () => {
                             <a>
                                 News
                             </a>
-                    </Box>
+                        </Box>
                     </Link>
                     <Box ml={3} mr={3} >|</Box>
                     <Menu isLazy  >
@@ -99,7 +99,7 @@ const Header = () => {
                             cursor="pointer"
                             borderBottom={path === '/faculity-staff/[faculitystaff]' || path === "/faculity-staff/our-teachers" ? "2px" : ""}
                         >
-                            Faculity/Staff
+                            Faculty/Staff
                             <ChevronDownIcon mr="-10px" />
                         </MenuButton>
                         <MenuList
@@ -114,25 +114,25 @@ const Header = () => {
                     </Menu>
                     <Box ml={3} mr={3}>|</Box>
                     <Link href="/contact-us">
-                    <Box
-                        borderBottom={path === '/contact-us' ? "2px" : ""}
-                        cursor="pointer"
-                    >
-                        <a>
-                            Contact US
-                        </a>  
-                    </Box>
+                        <Box
+                            borderBottom={path === '/contact-us' ? "2px" : ""}
+                            cursor="pointer"
+                        >
+                            <a>
+                                Contact US
+                            </a>
+                        </Box>
                     </Link>
                     <Box ml={3} mr={3}>|</Box>
                     <Link href="/join-us">
-                    <Box
-                        borderBottom={path === '/join-us' || path === '/join-us/[jobslug]' ? "2px" : ""}
-                        cursor="pointer"
-                    >
-                        <a>
-                            JOIN US
-                        </a>
-                    </Box>
+                        <Box
+                            borderBottom={path === '/join-us' || path === '/join-us/[jobslug]' ? "2px" : ""}
+                            cursor="pointer"
+                        >
+                            <a>
+                                JOIN US
+                            </a>
+                        </Box>
                     </Link>
                 </Flex>
             </Flex>

@@ -90,6 +90,11 @@ export let galery = [
         id: "1",
         item: "Academic Year 2020-2021",
         link: "/academic_year_2020-2021"
+    },
+    {
+        id: "2",
+        item: "Academic Year 2021-2022",
+        link: "/academic_year_2021-2022"
     }
 
 ]

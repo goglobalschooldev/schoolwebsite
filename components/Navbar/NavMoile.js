@@ -113,17 +113,13 @@ export default function NavMoile() {
                             >
                                 <Link href="/enrolment">
                                     <Box>
-                                        <a>
-                                            Enrolment
-                                        </a>
+                                        Enrolment
                                     </Box>
                                 </Link>
                                 <br />
                                 <Link href="/school-fees">
-                                    <Box>
-                                        <a>
-                                            School Fees
-                                        </a>
+                                    <Box mt={-5}>
+                                        School Fees
                                     </Box>
                                 </Link>
                             </Box>
@@ -156,7 +152,7 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/foreign-languange-programme">
-                                    <Box>
+                                    <Box mt={-5}>
                                         <a>
                                             Foreign Language Programme
                                         </a>
@@ -164,7 +160,7 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/general-programme">
-                                    <Box>
+                                    <Box mt={-5}>
                                         <a>
                                             General Programme
                                         </a>
@@ -172,7 +168,7 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/academic-calendar">
-                                    <Box>
+                                    <Box mt={-5}>
                                         <a>
                                             Academic Calendar
                                         </a>
@@ -209,9 +205,9 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/student-activity-involvement">
-                                    <a>
+                                    <Box mt={-5}>
                                         Student Activity/Involvement
-                                    </a>
+                                    </Box>
                                 </Link>
                             </Box>
                             <Divider ml="10px" mt="5px" zIndex="3" />
@@ -246,9 +242,12 @@ export default function NavMoile() {
                             >
                                 <Link href="/gallery/academic_year_2020-2021">
                                     <Box>
-                                        <a>
-                                            Academic Year 2020-2021
-                                        </a>
+                                        Academic Year 2020-2021
+                                    </Box>
+                                </Link>
+                                <Link href="/gallery/academic_year_2021-2022">
+                                    <Box mt={1}>
+                                        Academic Year 2021-2022
                                     </Box>
                                 </Link>
                             </Box>
@@ -275,7 +274,7 @@ export default function NavMoile() {
                             fontSize="18px"
                             p="8px 0px 8px 8px"
                         >
-                            Faculity/Staff
+                            Faculty/Staff
                             <ChevronDownIcon mr="-10px" />
                         </Box>
                         <Collapse in={subMen}>
@@ -293,7 +292,7 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/faculity-staff/principal">
-                                    <Box>
+                                    <Box mt={-5}>
                                         <a>
                                             Principal
                                         </a>
@@ -301,7 +300,7 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/faculity-staff/academic_affairs">
-                                    <Box>
+                                    <Box mt={-5}>
                                         <a>
                                             Academic Affair
                                         </a>
@@ -309,7 +308,7 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/faculity-staff/administrative-and-financial-affairs">
-                                    <Box>
+                                    <Box mt={-5}>
                                         <a>
                                             Administrative and Financial Affair
                                         </a>
@@ -317,7 +316,7 @@ export default function NavMoile() {
                                 </Link>
                                 <br />
                                 <Link href="/faculity-staff/our-teachers">
-                                    <Box>
+                                    <Box mt={-5}>
                                         <a>
                                             Our Teacher
                                         </a>
