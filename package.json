@@ -20,7 +20,7 @@
     "aos": "^2.3.4",
     "contentful": "^8.4.2",
     "dompurify": "^2.3.3",
-    "firebase": "^8.6.2",
+    "firebase": "^8.10.1",
     "framer-motion": "^4.1.17",
     "google-map-react": "^2.1.10",
     "gql": "^1.1.2",

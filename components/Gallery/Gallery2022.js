@@ -1,9 +1,11 @@
-import React from 'react'
-import { academicYear20_21 } from './ImageAPI'
-import { academicYear21_22 } from './ImageAPI'
+import React, { useEffect, useState } from 'react'
 import DztImageGalleryComponent from "reactjs-image-gallery";
 import { Box, Center, Image, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion"
+// firebase Storage
+import firebase from '../../Auth/firebase';
+// import { ref, listAll, getDownloadURL } from "../../Auth/firebase/storage";
+
 const MotionBox = motion(Box)
 
 export default function GalleryPage() {
@@ -17,6 +19,45 @@ export default function GalleryPage() {
         xl: "30px",  //1200px
         '2xl': "30px"  //1536px
     }
+
+    const [loading, setLoading] = useState(true);
+    const [rows, setRows] = useState([]);
+
+    // Firebase Data 
+    // Create a reference under which you want to list
+    const storage = firebase.storage();
+
+    useEffect(() => {
+        storage.ref().child('Gallery/2021-2022').listAll()
+            .then(res => {
+                // console.log(res?.items, "res");
+                res.items.forEach((itemRef) => {
+                    // Get Name from File
+                    let pathName = itemRef?.name;
+                    let ImageName = pathName.split('.')[0];
+
+                    // All the items under listRef.  
+                    itemRef.getDownloadURL()
+                        .then((url) => {
+                            // Insert url into an <img> tag to "download"                        
+                            let allrows = {
+                                url: url,
+                                thumbUrl: url,
+                                title: ImageName,
+                            }
+                            rows.push(allrows);
+                            setRows([...rows]);
+                        })
+                });
+            })
+            .catch(err => {
+                alert(err.message);
+            })
+
+    }, [])
+
+    // console.log(rows, "image firebase")
+
 
     return (
         <Box>
@@ -46,7 +87,7 @@ export default function GalleryPage() {
                     </MotionBox>
                 </Box>
             </Center>
-            <DztImageGalleryComponent images={academicYear21_22} />
+            <DztImageGalleryComponent images={rows} />
         </Box>
     )
 }

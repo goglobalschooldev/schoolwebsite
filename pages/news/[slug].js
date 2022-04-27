@@ -39,11 +39,10 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default function newsdetails({ news }) {
-
     let router = useRouter()
     console.log(router.pathname)
     // let url = router 
-    const { body, secondlybody, title, src, date } = news.fields;
+    const { body, secondlybody, thumbnail, thirdbody, title, src, date } = news.fields;
 
     let container = { sm: "100%", md: "100%", lg: "98%", xl: "80%", "2xl": "80%" };
     let titleSize = { sm: "100%", md: "26px", lg: "28px", xl: "30px", "2xl": "38px" };
@@ -105,6 +104,13 @@ export default function newsdetails({ news }) {
                     mt="30px"
                 >
                     {secondlybody}
+                </Box>
+                <Image mt="30px" src={'https:' + thumbnail.fields.file.url} />
+                <Box
+                    fontSize={body_Text}
+                    mt="30px"
+                >
+                    {thirdbody}
                 </Box>
             </Box>
         </Center>
