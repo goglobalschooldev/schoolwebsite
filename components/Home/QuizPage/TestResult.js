@@ -1,20 +1,16 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
+
     useDisclosure,
     Button,
     Box,
     Center,
+
 } from "@chakra-ui/react";
 import moment from 'moment'
 import ReactToPrint from "react-to-print";
-
+import { GET_OVERAL, GET_SUBJECT_RESULT } from '../../../Schema/ApolloSchema';
+import { useQuery } from '@apollo/client';
 
 
 export default function TestResult({
@@ -27,9 +23,17 @@ export default function TestResult({
     subject,
     sub1,
     sub2,
-    programme
+    programme,
+    placementId
 }) {
-
+    // console.log(placementId)
+    const { loading, error, data } = useQuery(GET_OVERAL, {
+        variables: { placementId: placementId },
+    });
+    const { data: testResult } = useQuery(GET_SUBJECT_RESULT, {
+        variables: { placementId: placementId },
+    });
+    // console.log(testResult?.getSubjectResult)
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const componentRef = useRef();
@@ -135,7 +139,7 @@ export default function TestResult({
                     </Button>}
                     content={() => componentRef.current}
                     documentTitle={`${curreneEDU} Placement Test Result-${stuName}.pdf`}
-                    // onBeforeGetContent={() => opentModel()}
+                // onBeforeGetContent={() => opentModel()}
                 />
 
             </Center>
@@ -147,7 +151,7 @@ export default function TestResult({
                     <Box
                         // style={{ position: 'absolute' }}
                         mt="-850px"
-                        style={{ zIndex: 1}}
+                        style={{ zIndex: 1 }}
                     >
                         <Box
                             fontSize="20px"
@@ -202,17 +206,12 @@ export default function TestResult({
                                     <td>Result</td>
                                 </tr>
                                 {
-                                    subject?.map(
-                                        sub =>
-                                            <tr>
-                                                <td>{sub.subject}</td>
-                                                <td>{sub.score}</td>
-                                                <td>{
-                                                    parseInt(sub.score) >= passScore ? 'Pass'
-                                                        : parseInt(sub.score) >= considerScore ? 'Consider'
-                                                            : 'Fail'
-                                                }</td>
-                                            </tr>
+                                    testResult?.getSubjectResult?.map(sub =>
+                                        <tr>
+                                            <td>{sub?.subject}</td>
+                                            <td>{sub?.score}</td>
+                                            <td>{sub?.status}</td>
+                                        </tr>
                                     )
                                 }
 
@@ -221,10 +220,7 @@ export default function TestResult({
                                     <td></td>
                                     <td>
                                         {
-                                            // overal
-                                            sub1 < considerScore || sub2 < considerScore ? curreneEDU :
-                                                sub1 >= considerScore ? getTestFor :
-                                                    sub2 >= considerScore ? getTestFor : curreneEDU
+                                            data?.getOverall
                                         }
 
                                     </td>

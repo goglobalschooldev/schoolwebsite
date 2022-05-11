@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect } from 'react'
 import {
     Text,
     Box,
@@ -24,7 +24,7 @@ export default function PlacementCard({ scoreBySubjects, programme, placement, p
 
     useEffect(() => {
         reactLocalStorage.set(placementId._id, programme)
-        console.log(data?.getResultCertificate?.programme?.name);
+        // console.log(data?.getResultCertificate?.programme?.name);
     }, [])
 
 
@@ -92,6 +92,7 @@ export default function PlacementCard({ scoreBySubjects, programme, placement, p
                     programme={data?.getResultCertificate?.programme?.name}
                     sub1={data?.getResultCertificate?.scoreBySubjects[0]?.score}
                     sub2={data?.getResultCertificate?.scoreBySubjects[1]?.score}
+                    placementId={placementId._id}
                 />
             </LinkBox>
         </Center>

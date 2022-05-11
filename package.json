@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "set PORT=3600 && next dev",
     "build": "next build",
     "prod_start": "next server.js",
     "start": "set PORT=2800 && next start"

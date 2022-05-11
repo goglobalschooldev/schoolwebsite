@@ -1,6 +1,6 @@
 import { createClient } from 'contentful';
 import HomePage from '../components/Home/HomePage'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { NextSeo } from "next-seo";
 
 
@@ -26,11 +26,6 @@ export async function getStaticProps() {
   }
 }
 export default function Home({ allnews, allteacher, allpromotion }) {
-
-//   useEffect(() => {
-//     i18next.changeLanguage("kh").then(console.log('sd'))
-    
-// }, [])
 
 return (
   <div>

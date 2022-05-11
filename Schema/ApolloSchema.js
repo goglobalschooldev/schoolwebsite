@@ -451,3 +451,17 @@ export const GET_OPTION_SCORE = gql`
   getOptionScore(id: $getOptionScoreId)
 }
 `
+export const GET_OVERAL = gql`
+  query Query($placementId: String!) {
+    getOverall(placementId: $placementId)
+  }
+`
+export const GET_SUBJECT_RESULT = gql`
+  query GetSubjectResult($placementId: String!) {
+    getSubjectResult(placementId: $placementId) {
+      subject
+      score
+      status
+    }
+  }
+`
