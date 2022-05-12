@@ -217,7 +217,11 @@ export default function TestResult({
 
                                 <tr className="result-footer">
                                     <td>Overall</td>
-                                    <td></td>
+                                    <td>
+                                        {
+                                            programme === "Khmer Programme" ? (sub1 + sub2) / 2 : ""
+                                        }
+                                    </td>
                                     <td>
                                         {
                                             data?.getOverall

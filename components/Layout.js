@@ -13,9 +13,9 @@ const Layout = ({ children }) => {
     const { user } = state;
     const token = user?.token;
     const httpLink = createHttpLink({
-        uri: process.env.NEXT_PUBLIC_DB_HOST
+        uri: "http://localhost:4700/graphql"
     });
-    // , "https://placement-test-endpoint.go-globalschool.com/graphql"
+    // process.env.NEXT_PUBLIC_DB_HOST, "https://placement-test-endpoint.go-globalschool.com/graphql"
     //  "http://localhost:4700/graphql"REACT_APP_DATABASE
     // uri: "https://endpoint.goglobalmart.com/graphql",
     const authLink = setContext((_, { headers }) => {
