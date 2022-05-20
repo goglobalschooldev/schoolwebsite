@@ -22,7 +22,6 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = firebase.auth().onAuthStateChanged((userCred) => {
             if (userCred) {
                 userCred.getIdToken().then((token) => {
-                    // setToken(token);
                     dispatch({
                         type: 'LOGGED_IN_USER',
                         payload: { email: userCred.email, token }
@@ -39,8 +38,8 @@ const AuthProvider = ({ children }) => {
 
         return () => unsubscribe();
     }, [])
-    const value = { state, dispatch }
 
+    const value = { state, dispatch }
     return (
         <AuthContext.Provider value={value}>
             {children}

@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
         link: authLink.concat(httpLink),
         cache: new InMemoryCache()
     });
-
+    // console.log(state)
     return (
         <ApolloProvider client={client}>
             <NavMoile />

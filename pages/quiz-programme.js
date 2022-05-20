@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import Programme from "../components/Home/QuizPage/Programme";
 import { NextSeo } from "next-seo";
+import { AuthContext } from '../Context/AuthContext';
+import { useRouter } from 'next/router';
 
 export default function QuizProgramme() {
-
 
     return (
         <div>

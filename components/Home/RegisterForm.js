@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react'
+import React, { useStateF } from 'react'
 import firebase from '../../Auth/firebase';
 import { useRouter } from 'next/router';
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
-import { AuthContext } from '../../Context/AuthContext';
 import { CREATE_STUDENT } from '../../Schema/ApolloSchema';
 import { useMutation } from '@apollo/client';
 import { useToast } from "@chakra-ui/react"
@@ -30,7 +29,6 @@ export default function RegisterForm() {
 
     const toast = useToast()
     const router = useRouter()
-    const [dispatch] = useContext(AuthContext);
     const [studentCreate] = useMutation(CREATE_STUDENT);
     const [gender, setGender] = useState();
     const [bloodType, setBloom] = useState();
@@ -65,10 +63,7 @@ export default function RegisterForm() {
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
 
-    // useEffect(() => {
-    //     const localEmail = window.localStorage.getItem('emailFormRegistration')
-    //     setUser({ ...user, email: localEmail })
-    // }, [router])
+
     const {
         email, password, rePassword, khmerName, name, niceName, transferFrom, placeOfBirth, currentAddress, dateOfBirth,
         motherName, motherEdu, motherPhone, motherOccupation, fatherName, fatherEdu, fatherPhone, fatherOccupation
@@ -78,14 +73,8 @@ export default function RegisterForm() {
         const DateOFBirth = dateOfBirth.format('ll');
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
-                // Signed in 
                 var user = userCredential.user;
-                // user.getIdToken(/* forceRefresh */ true).then(idToken => dispatch({
-                //     type: 'LOGGED_IN_USER',
-                //     payload: { email: user.email, token: idToken }
-                // }))
                 router.push('/quiz-programme')
-
                 toast({
                     title: "Register Succesfull!!",
                     description: `Welcome ${name}!!`,
@@ -121,7 +110,6 @@ export default function RegisterForm() {
                 })
             })
             .catch((error) => {
-                var errorCode = error.code;
                 var errorMessage = error.message;
                 toast({
                     title: errorMessage,
@@ -347,7 +335,7 @@ export default function RegisterForm() {
                                     <Button
                                         bg='brand.100'
                                         disabled={
-                                            email && password && rePassword && khmerName && name  ?
+                                            email && password && rePassword && khmerName && name ?
                                                 false : true
                                         }
                                         onClick={() => {

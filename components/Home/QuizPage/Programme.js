@@ -1,15 +1,16 @@
-import { useState, useContext, useMemo } from "react";
+import { useState, useContext, useMemo, useEffect } from "react";
 import { Center, Image, SimpleGrid, Box, Grid, GridItem, Button, Avatar, SkeletonCircle, SkeletonText } from "@chakra-ui/react"
 import firebase from '../../../Auth/firebase';
 import { AuthContext } from '../../../Context/AuthContext';
 import { useRouter } from 'next/router'
-// import SeeResultBtn from "./SeeResultBtn";
 import EditBtn from "./EditBtn";
 import AddProgrammeBtn from "./AddProgrammeBtn";
 import { useQuery } from '@apollo/client'
 import { GET_STUDENT, GET_RESULT } from '../../../Schema/ApolloSchema';
 import PlacementCard from "./PlacementCard";
 import ViewProfileBtn from "./ViewProfileBtn";
+
+
 export default function Programme() {
 
     const [student, setStudent] = useState({
@@ -34,15 +35,22 @@ export default function Programme() {
         fatherOccupation: ''
     })
 
-    const [dispatch] = useContext(AuthContext);
+    const { state, dispatch } = useContext(AuthContext)
+
     const { data, loading } = useQuery(GET_STUDENT);
     const { data: placementData } = useQuery(GET_RESULT);
 
-    let heightFoot =0
+    let heightFoot = 0
 
-    const router = useRouter();
+    let router = useRouter();
 
+    useEffect(() => {
+        if (!state.user) {
+            router.push('/')
+        }
+    }, [])
     useMemo(() => {
+
         if (data) {
             setStudent({
                 id: data.getStudent._id,
@@ -72,16 +80,15 @@ export default function Programme() {
     let w_Box1 = { md: '55%', lg: "90%", xl: "90%", '2xl': "90%" };
 
     const checkHeight = (e) => {
-        if(e - 12 >= 0){
+        if (e - 12 >= 0) {
             return 150
         }
-        if(e - 9 >= 0){
+        if (e - 9 >= 0) {
             return 100
         }
 
         return 50
     }
-
     const logout = () => {
         firebase.auth().signOut().then(() => {
             router.push('/')
@@ -194,7 +201,7 @@ export default function Programme() {
                                             placementData &&
                                             placementData.getStudentResult.map(placement => {
 
-                                                heightFoot= heightFoot+1
+                                                heightFoot = heightFoot + 1
 
                                                 return (
                                                     <PlacementCard
@@ -214,7 +221,7 @@ export default function Programme() {
                             </GridItem>
                         </Grid>
                     </Box>
-                    <Box h={{sm:`${checkHeight(heightFoot) * 4}vh`, md: `${checkHeight(heightFoot) * 2}vh`, lg: `${checkHeight(heightFoot) * 2}vh`, xl: `${checkHeight(heightFoot)}vh` }}></Box>
+                    <Box h={{ sm: `${checkHeight(heightFoot) * 4}vh`, md: `${checkHeight(heightFoot) * 2}vh`, lg: `${checkHeight(heightFoot) * 2}vh`, xl: `${checkHeight(heightFoot)}vh` }}></Box>
                 </Center>
 
             </Box>
