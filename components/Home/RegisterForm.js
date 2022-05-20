@@ -1,4 +1,4 @@
-import React, { useStateF } from 'react'
+import React, { useState } from 'react'
 import firebase from '../../Auth/firebase';
 import { useRouter } from 'next/router';
 import { DatePicker } from 'antd';
@@ -73,8 +73,10 @@ export default function RegisterForm() {
         const DateOFBirth = dateOfBirth.format('ll');
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
+                // Signed in 
                 var user = userCredential.user;
                 router.push('/quiz-programme')
+
                 toast({
                     title: "Register Succesfull!!",
                     description: `Welcome ${name}!!`,
@@ -110,6 +112,7 @@ export default function RegisterForm() {
                 })
             })
             .catch((error) => {
+                var errorCode = error.code;
                 var errorMessage = error.message;
                 toast({
                     title: errorMessage,
