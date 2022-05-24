@@ -39,11 +39,10 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default function newsdetails({ news }) {
-    console.log(news)
     let router = useRouter()
     console.log(router.pathname)
     // let url = router 
-    const { body, secondlybody, thumbnail, thirdbody, title, src, date, slug, thumbnail2, thumbnail3, thumbnail4 } = news.fields;
+    const { body, secondlybody, thumbnail, thirdbody, Fourthbody, title, src, date, thumbnail2, thumbnail3, thumbnail4 } = news.fields;
     let container = { sm: "100%", md: "100%", lg: "98%", xl: "80%", "2xl": "80%" };
     let titleSize = { sm: "100%", md: "26px", lg: "28px", xl: "30px", "2xl": "38px" };
     let body_Text = { sm: "100%", md: "16px", lg: "18px", xl: "20px", "2xl": "20px" };
@@ -55,6 +54,7 @@ export default function newsdetails({ news }) {
         xl: '70px',     //1200px
         '2xl': '70px'   //1536px
     }
+    // console.log("news::->", news)
 
     return (
         <Center>
@@ -105,40 +105,106 @@ export default function newsdetails({ news }) {
                 >
                     {secondlybody}
                 </Box>
-                <>
-                    {
-                        slug === "shareholder-management-system-2022" ?
-                            <>
+                <Box>
+                    <>
+                        {
+                            body ?
+                                <Box
+                                    fontSize={body_Text}
+                                    mt="30px"
+                                >
+                                    {body}
+                                </Box>
+                                :
+                                ""
+                        }
+                    </>
+                    <>
+                        {
+                            thumbnail ?
                                 <Image
                                     mt="30px"
                                     src={'https:' + thumbnail.fields.file.url}
                                 />
+                                :
+                                ""
+                        }
+                    </>
+                    <>
+                        {
+                            secondlybody ?
+                                <Box
+                                    fontSize={body_Text}
+                                    mt="30px"
+                                >
+                                    {secondlybody}
+                                </Box>
+                                :
+                                ""
+                        }
+                    </>
+                    <>
+                        {
+                            thumbnail2 ?
+                                <Image
+                                    mt="30px"
+                                    src={'https:' + thumbnail2.fields.file.url}
+                                />
+                                :
+                                ""
+                        }
+                    </>
+                    <>
+                        {
+                            thirdbody ?
                                 <Box
                                     fontSize={body_Text}
                                     mt="30px"
                                 >
                                     {thirdbody}
                                 </Box>
-                                <Image
-                                    mt="30px"
-                                    src={'https:' + thumbnail2.fields.file.url}
-                                />
+                                :
+                                ""
+                        }
+                    </>
+                    <>
+                        {
+                            thumbnail3 ?
                                 <Image
                                     mt="30px"
                                     src={'https:' + thumbnail3.fields.file.url}
                                 />
+                                :
+                                ""
+                        }
+                    </>
+                    <>
+                        {
+                            Fourthbody ?
+                                <Box
+                                    fontSize={body_Text}
+                                    mt="30px"
+                                >
+                                    {Fourthbody}
+                                </Box>
+                                :
+                                ""
+                        }
+                    </>
+                    <>
+                        {
+                            thumbnail4 ?
                                 <Image
                                     mt="30px"
                                     src={'https:' + thumbnail4.fields.file.url}
                                 />
-                            </>
-                            :
-                            <></>
-                    }
+                                :
+                                ""
+                        }
+                    </>
 
-                </>
-
+                </Box>
             </Box>
-        </Center>
+        </Center >
     )
 }
