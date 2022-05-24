@@ -67,7 +67,7 @@ export default function newsdetails({ news }) {
                     description: body,
                     images: [
                         {
-                            // url: 'https:' + src.fields.file.url,
+                            url: 'https:' + src.fields.file.url,
                             width: 700,
                             height: 500,
                             alt: "Logo",
