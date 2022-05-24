@@ -95,16 +95,6 @@ export default function newsdetails({ news }) {
                 <Box >
                     {date}
                 </Box>
-                <Box mt="20px" fontSize={body_Text}>
-                    {body}
-                </Box>
-                <Image mt="30px" src={'https:' + src.fields.file.url} />
-                <Box
-                    fontSize={body_Text}
-                    mt="30px"
-                >
-                    {secondlybody}
-                </Box>
                 <Box>
                     <>
                         {
