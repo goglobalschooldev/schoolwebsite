@@ -85,7 +85,6 @@ export default function newsdetails({ news }) {
 
   return (
     <Center>
-      {console.log("src.fields.file.url:->", src.fields.file.url)}
       <NextSeo
         title="News | Go Global School"
         openGraph={{
@@ -110,10 +109,10 @@ export default function newsdetails({ news }) {
         }}
       />
       <Box width={container} p="20px" mt={marginTop} color="brand.100">
-        {/* <image alt="test" src="./link_image.jpg" /> */}
-        {/* <Box boxSize="sm">
+        <Box boxSize="sm">
+          Test Image
           <Image src={"https:" + src.fields.file.url} alt="news" />
-        </Box> */}
+        </Box>
         <Box fontSize={body_Text}>News</Box>
         <Box
           w="60%"
