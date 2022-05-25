@@ -38,7 +38,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export default function newsdetails({ news }) {
-  //   console.log("news:->", news);
+  console.log("news:->", news);
   let router = useRouter();
   console.log(router.pathname);
   // let url = router
