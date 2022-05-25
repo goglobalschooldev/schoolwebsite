@@ -85,7 +85,7 @@ export default function newsdetails({ news }) {
 
   return (
     <Center>
-      {/* <NextSeo
+      <NextSeo
         title="News | Go Global School"
         openGraph={{
           url: "www.go-globalschool.com/news" + router.pathname,
@@ -94,7 +94,7 @@ export default function newsdetails({ news }) {
           description: body,
           images: [
             {
-              url: "https:" + src.fields.file.url,
+              url: "https:" + src?.fields?.file?.url,
               width: 700,
               height: 500,
               alt: "Logo",
@@ -107,7 +107,7 @@ export default function newsdetails({ news }) {
           site: "@site",
           cardType: "summary_large_image",
         }}
-      /> */}
+      />
       <Box width={container} p="20px" mt={marginTop} color="brand.100">
         <Box fontSize={body_Text}>News</Box>
         <Box
@@ -131,7 +131,7 @@ export default function newsdetails({ news }) {
           </>
           <>
             {thumbnail ? (
-              <Image mt="30px" src={"https:" + thumbnail.fields.file.url} />
+              <Image mt="30px" src={"https:" + thumbnail?.fields?.file?.url} />
             ) : (
               ""
             )}
@@ -147,7 +147,7 @@ export default function newsdetails({ news }) {
           </>
           <>
             {thumbnail2 ? (
-              <Image mt="30px" src={"https:" + thumbnail2.fields.file.url} />
+              <Image mt="30px" src={"https:" + thumbnail2?.fields?.file?.url} />
             ) : (
               ""
             )}
@@ -163,7 +163,7 @@ export default function newsdetails({ news }) {
           </>
           <>
             {thumbnail3 ? (
-              <Image mt="30px" src={"https:" + thumbnail3.fields.file.url} />
+              <Image mt="30px" src={"https:" + thumbnail3?.fields?.file?.url} />
             ) : (
               ""
             )}
@@ -179,7 +179,7 @@ export default function newsdetails({ news }) {
           </>
           <>
             {thumbnail4 ? (
-              <Image mt="30px" src={"https:" + thumbnail4.fields.file.url} />
+              <Image mt="30px" src={"https:" + thumbnail4?.fields?.file?.url} />
             ) : (
               ""
             )}
