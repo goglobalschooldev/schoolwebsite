@@ -1,6 +1,5 @@
 import { createClient } from "contentful";
-import { Box, Center } from "@chakra-ui/react";
-import { Image } from "@chakra-ui/react";
+import { Box, Center, Image } from "@chakra-ui/react";
 import React from "react";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
@@ -96,7 +95,7 @@ export default function newsdetails({ news }) {
           description: body,
           images: [
             {
-              url: "/link_image.jpg",
+              url: "https://bit.ly/dan-abramov",
               width: 700,
               height: 500,
               alt: "Logo",
@@ -111,6 +110,11 @@ export default function newsdetails({ news }) {
         }}
       />
       <Box width={container} p="20px" mt={marginTop} color="brand.100">
+        {/* <image alt="test" src="./link_image.jpg" /> */}
+        {/* <Box boxSize="sm">
+          <Image src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
+        </Box> */}
+        <div>Hello</div>
         <Box fontSize={body_Text}>News</Box>
         <Box
           w="60%"
