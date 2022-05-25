@@ -95,7 +95,7 @@ export default function newsdetails({ news }) {
           description: body,
           images: [
             {
-              url: "https://bit.ly/dan-abramov",
+              url: "https:" + src.fields.file.url,
               width: 700,
               height: 500,
               alt: "Logo",
@@ -112,7 +112,7 @@ export default function newsdetails({ news }) {
       <Box width={container} p="20px" mt={marginTop} color="brand.100">
         {/* <image alt="test" src="./link_image.jpg" /> */}
         {/* <Box boxSize="sm">
-          <Image src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
+          <Image src={"https:" + src.fields.file.url} alt="news" />
         </Box> */}
         <div>Hello</div>
         <Box fontSize={body_Text}>News</Box>
