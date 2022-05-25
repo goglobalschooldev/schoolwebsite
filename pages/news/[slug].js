@@ -38,10 +38,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export default function newsdetails({ news }) {
-  console.log("news:->", news);
   let router = useRouter();
-  console.log(router.pathname);
-  // let url = router
   const {
     body,
     secondlybody,
@@ -55,6 +52,7 @@ export default function newsdetails({ news }) {
     thumbnail3,
     thumbnail4,
   } = news.fields;
+
   let container = {
     sm: "100%",
     md: "100%",
@@ -88,16 +86,17 @@ export default function newsdetails({ news }) {
 
   return (
     <Center>
+      {console.log("src.fields.file.url:->", src.fields.file.url)}
       <NextSeo
-        title={title}
+        title="News | Go Global School"
         openGraph={{
           url: "www.go-globalschool.com/news" + router.pathname,
           site_name: "Go Global School",
-          title: title,
+          title: { title },
           description: body,
           images: [
             {
-              url: "https:" + src.fields.file.url,
+              url: "/link_image.jpg",
               width: 700,
               height: 500,
               alt: "Logo",
