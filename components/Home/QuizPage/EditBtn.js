@@ -201,8 +201,9 @@ export default function EditBtn({ data }) {
                                         Edit Your Information
                                     </Text>
                                     <SimpleGrid spacing={8} color="brand.100" columns={[2, 2, 2, 2, 2, 2]}>
-                                        <Box height="20px">
+                                        {/* <Box height="20px">
                                             <Input
+
                                                 value={student.email}
                                                 onChange={(e) => setStudent({ ...student, email: e.target.value })}
                                                 borderColor="brand.100"
@@ -210,8 +211,8 @@ export default function EditBtn({ data }) {
                                                 placeholder="Name in khmer"
                                                 fontFamily="khmer os siemreap"
                                             />
-                                        </Box>
-                                        <Box height="20px">
+                                        </Box> */}
+                                        {/* <Box height="20px">
                                             <InputGroup size="md">
                                                 <Input
                                                     value={student.password}
@@ -228,7 +229,7 @@ export default function EditBtn({ data }) {
                                                     </Button>
                                                 </InputRightElement>
                                             </InputGroup>
-                                        </Box>
+                                        </Box> */}
                                         <Box height="20px">
                                             <Input
                                                 value={student.khmerName}
