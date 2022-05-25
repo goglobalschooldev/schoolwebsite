@@ -3,6 +3,7 @@ import { Box, Center, Image } from "@chakra-ui/react";
 import React from "react";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
+
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -81,7 +82,6 @@ export default function newsdetails({ news }) {
     xl: "70px", //1200px
     "2xl": "70px", //1536px
   };
-  // console.log("news::->", news)
 
   return (
     <Center>
@@ -114,7 +114,6 @@ export default function newsdetails({ news }) {
         {/* <Box boxSize="sm">
           <Image src={"https:" + src.fields.file.url} alt="news" />
         </Box> */}
-        <div>Hello</div>
         <Box fontSize={body_Text}>News</Box>
         <Box
           w="60%"
