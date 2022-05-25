@@ -85,7 +85,7 @@ export default function newsdetails({ news }) {
 
   return (
     <Center>
-      <NextSeo
+      {/* <NextSeo
         title="News | Go Global School"
         openGraph={{
           url: "www.go-globalschool.com/news" + router.pathname,
@@ -107,12 +107,8 @@ export default function newsdetails({ news }) {
           site: "@site",
           cardType: "summary_large_image",
         }}
-      />
+      /> */}
       <Box width={container} p="20px" mt={marginTop} color="brand.100">
-        <Box boxSize="sm">
-          Test Image
-          <Image src={"https:" + src.fields.file.url} alt="news" />
-        </Box>
         <Box fontSize={body_Text}>News</Box>
         <Box
           w="60%"
