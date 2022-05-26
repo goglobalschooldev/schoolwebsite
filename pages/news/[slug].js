@@ -90,14 +90,14 @@ export default function newsdetails({ news }) {
         openGraph={{
           url: "www.go-globalschool.com/news" + router.pathname,
           site_name: "Go Global School",
-          title: { title },
+          title: title,
           description: body,
           images: [
             {
               url: "https:" + src?.fields?.file?.url,
               width: 700,
               height: 500,
-              alt: "Logo",
+              alt: "seoImage",
               type: "image/jpg",
             },
           ],
