@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {
-
     useDisclosure,
     Button,
     Box,
     Center,
-
 } from "@chakra-ui/react";
 import moment from 'moment'
 import ReactToPrint from "react-to-print";
 import { GET_OVERAL, GET_SUBJECT_RESULT } from '../../../Schema/ApolloSchema';
 import { useQuery } from '@apollo/client';
-
 
 export default function TestResult({
     stuName,
@@ -20,20 +17,17 @@ export default function TestResult({
     from,
     testDate,
     resultDate,
-    subject,
     sub1,
     sub2,
     programme,
     placementId
 }) {
-    // console.log(placementId)
-    const { loading, error, data } = useQuery(GET_OVERAL, {
+    const { data } = useQuery(GET_OVERAL, {
         variables: { placementId: placementId },
     });
     const { data: testResult } = useQuery(GET_SUBJECT_RESULT, {
         variables: { placementId: placementId },
     });
-    // console.log(testResult?.getSubjectResult)
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const componentRef = useRef();
@@ -130,6 +124,9 @@ export default function TestResult({
             <Center>
                 <ReactToPrint
                     trigger={() => <Button
+                        isDisabled={
+                            sub1 > 0 && sub2 > 0 ? false : true
+                        }
                         bg="brand.100"
                         borderColor='brand.100'
                         color="white"

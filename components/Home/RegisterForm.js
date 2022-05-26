@@ -5,7 +5,8 @@ import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
 import { CREATE_STUDENT } from '../../Schema/ApolloSchema';
 import { useMutation } from '@apollo/client';
-import { useToast } from "@chakra-ui/react"
+import { useToast } from "@chakra-ui/react";
+import { reactLocalStorage } from 'reactjs-localstorage';
 import {
     Input,
     Center,
@@ -75,8 +76,9 @@ export default function RegisterForm() {
             .then((userCredential) => {
                 // Signed in 
                 var user = userCredential.user;
+                // console.log(user.Aa)
                 router.push('/quiz-programme')
-
+                reactLocalStorage.set("uuidKey", user.Aa)
                 toast({
                     title: "Register Succesfull!!",
                     description: `Welcome ${name}!!`,
@@ -112,7 +114,7 @@ export default function RegisterForm() {
                 })
             })
             .catch((error) => {
-                var errorCode = error.code;
+                // var errorCode = error.code;
                 var errorMessage = error.message;
                 toast({
                     title: errorMessage,

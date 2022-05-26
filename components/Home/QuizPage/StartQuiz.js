@@ -2,11 +2,10 @@ import React, { useMemo, useState, useEffect } from 'react'
 import { Box, Center, Flex, Spacer } from '@chakra-ui/react'
 import { GET_EXERCISE, GET_ALL_QUESTIONS, ADD_SCORE_SUBJECT, GET_SUBJECT, GETPROGRAMMEBYSUBJECT, GET_STUDENT } from '../../../Schema/ApolloSchema';
 import { SkeletonText, SkeletonCircle } from "@chakra-ui/react"
-import { useLazyQuery, useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import ExerciseData from './ExerciseData'
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { useRouter } from 'next/router';
-import firebase from '../../../Auth/firebase'
 // https://github.com/amrlabib/react-timer-hook
 import CountdownTimer from "react-component-countdown-timer";
 // https://github.com/savalanpour/react-component-countdown-timer
@@ -63,19 +62,8 @@ export default function StartQuiz({ subjectId }) {
     useMemo(() => {
         if (subject) {
             setTime(subject.getSubject.timer)
-            // setScore((subject.getSubject)
         }
-        // let allQuestins = [0];
-        // const reducer = (previousValue, currentValue) => previousValue + currentValue;
-        // if (exercises) {
-        //     exercises.getExerciseBySubject.forEach(element => {
-        //         allQuestins.push(element.questions)
 
-        //     });
-        // }
-        // let totlel = allQuestins.reduce(reducer)
-        // console.log(totlel)
-        // setTotal(allQuestins.reduce(reducer))
     }, [subject])
 
     useEffect(() => {
@@ -122,8 +110,6 @@ export default function StartQuiz({ subjectId }) {
         }
 
         let subjectScore = allScore.reduce(reducer);
-        // reactLocalStorage.set('CurrectQuestion', QuestionIndex.length);
-        // reactLocalStorage.set('SubjectScore', subjectScore);
         let allQuestins = [0];
         if (exercises) {
             exercises.getExerciseBySubject.forEach(element => {

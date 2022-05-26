@@ -4,6 +4,8 @@ import { useDisclosure } from "@chakra-ui/react";
 import firebase from '../../Auth/firebase';
 import { AuthContext } from '../../Context/AuthContext';
 import { useRouter } from 'next/router';
+import { reactLocalStorage } from 'reactjs-localstorage';
+
 import {
     Modal,
     ModalOverlay,
@@ -40,7 +42,7 @@ export default function SignInForm() {
             await firebase.auth().signInWithEmailAndPassword(email, password)
                 .then(async res => {
                     const { user } = res;
-
+                    reactLocalStorage.set("uuidKey", user.Aa)
                     const idTokenResult = await user.getIdTokenResult();
                     dispatch({
                         type: 'LOGGED_IN_USER',

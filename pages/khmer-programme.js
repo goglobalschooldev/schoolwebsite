@@ -1,8 +1,6 @@
 import React from 'react'
 import { allProgramme } from '../components/Academic/ProgrammeData';
 import Programme from '../components/Academic/Programme'
-import { khmerDetails } from '../components/Academic/ProgrammeData';
-import AllProgrammeDetails  from '../components/Academic/AllProgrammeDetails'
 import { NextSeo } from "next-seo";
 
 export default function khmerprogramme() {
