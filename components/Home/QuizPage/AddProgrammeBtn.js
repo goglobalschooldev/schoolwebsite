@@ -231,7 +231,7 @@ export default function AddProgrammeBtn({ studentId }) {
                                 setLevelId('');
                                 setPlacementId('');
                                 onClose()
-                                router.reload(window.location.pathname)
+                                // router.reload(window.location.pathname)
                             }}
                         >
                             Create
