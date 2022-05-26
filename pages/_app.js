@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }) {
     setLoading(true)
   });
   Router.events.on('routeChangeComplete', (url) => {
-    console.log("Route is completed...")
+    // console.log("Route is completed...")
     NProgress.done()
     setLoading(false)
   })
