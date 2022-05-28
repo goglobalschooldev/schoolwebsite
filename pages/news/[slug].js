@@ -88,13 +88,13 @@ export default function newsdetails({ news }) {
       <NextSeo
         title="News | Go Global School"
         openGraph={{
-          //   url: "www.go-globalschool.com/news" + router.pathname,
+          url: "www.go-globalschool.com/news" + router.pathname,
           site_name: "Go Global School",
           title: title,
           description: body,
           images: [
             {
-              url: `${src?.fields?.file?.url}`,
+              url: `https:${src?.fields?.file?.url}`,
               width: 700,
               height: 500,
               alt: "Logo",
