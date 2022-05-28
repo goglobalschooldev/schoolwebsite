@@ -510,12 +510,12 @@ export let Event = [
         date: new Date('2022-09-13'),
         color: '#EEBF1D'
     },
-    {
-        id: 85,
-        title: 'Grade 12 National Examination',
-        date: new Date(''),
-        color: '#ED2777'
-    },
+    // {
+    //     id: 85,
+    //     title: 'Grade 12 National Examination',
+    //     date: new Date(),
+    //     color: '#ED2777'
+    // },
     {
         id: 86,
         title: 'Constitution Day',
