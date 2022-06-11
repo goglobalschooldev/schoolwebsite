@@ -10,7 +10,7 @@ export default function schoolFees() {
                 openGraph={{
                     url: "https://www.goglobalschool.com",
                     site_name: "Go Global School",
-                    title: "Academic Calendar",
+                    title: "School Fee",
                     description:
                     "Go Global School has been founded by a group of educational specialists, who collectively hold over 10 years of experience in the field. The curriculum has been developed in accordance with the academic programme set by the Ministry of Education, Youth, and Sport of The Kingdom of Cambodia and the British National Curriculum.",
                     images: [
