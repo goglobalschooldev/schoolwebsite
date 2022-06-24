@@ -24,9 +24,7 @@ export default function Startquiz() {
             });
 
             reactLocalStorage.set('allQuestion', allQuestion.length)
-
         }
-
        
     }, [])
     return (
