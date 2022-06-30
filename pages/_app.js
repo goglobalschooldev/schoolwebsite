@@ -1,25 +1,25 @@
-import '../styles/globals.css'
-import { ChakraProvider, extendTheme } from "@chakra-ui/react"
-import Layout from '../components/Layout'
-import { createBreakpoints } from "@chakra-ui/theme-tools"
-import Router from "next/router"
-import { useState, useEffect } from "react"
-import Loader from "../components/Loader"
-import Head from "next/head"
-import NProgress from "nprogress"
-import Aos from 'aos';
-import "aos/dist/aos.css"
+import "../styles/globals.css";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import Layout from "../components/Layout";
+import { createBreakpoints } from "@chakra-ui/theme-tools";
+import Router from "next/router";
+import { useState, useEffect } from "react";
+import Loader from "../components/Loader";
+import Head from "next/head";
+import NProgress from "nprogress";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MessengerCustomerChat from "react-messenger-customer-chat";
-import { AuthProvider } from '../Context/AuthContext'
-import { initReactI18next } from 'react-i18next'
-import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector'
-import HttpApi from 'i18next-http-backend';
-import i18next from 'i18next'
-import EN from '../locale/en/translation.json'
-import KH from '../locale/kh/translation.json'
-import ScrollingButton from './ScrollingButton'
+import { AuthProvider } from "../Context/AuthContext";
+import { initReactI18next } from "react-i18next";
+import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
+import HttpApi from "i18next-http-backend";
+import i18next from "i18next";
+import EN from "../locale/en/translation.json";
+import KH from "../locale/kh/translation.json";
+import ScrollingButton from "./ScrollingButton";
 
 NProgress.configure({ showSpinner: false });
 i18next
@@ -29,40 +29,39 @@ i18next
   .init({
     resources: {
       en: {
-        translation: EN
+        translation: EN,
       },
       kh: {
-        translation: KH
-      }
+        translation: KH,
+      },
     },
-    supportedLngs: ['en', 'kh'],
+    supportedLngs: ["en", "kh"],
     fallbackLng: "en",
     detection: {
-      order: ['cookie', 'htmlTag', 'localStorage', 'path', 'subdomain'],
-      caches: ['cookie'],
+      order: ["cookie", "htmlTag", "localStorage", "path", "subdomain"],
+      caches: ["cookie"],
     },
 
     react: {
-      useSuspense: false
-    }
+      useSuspense: false,
+    },
   });
 
 function MyApp({ Component, pageProps }) {
-
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
 
-  const [loading, setLoading] = useState(false)
-  Router.events.on('routeChangeStart', (url) => {
-    NProgress.start()
-    setLoading(true)
+  const [loading, setLoading] = useState(false);
+  Router.events.on("routeChangeStart", (url) => {
+    NProgress.start();
+    setLoading(true);
   });
-  Router.events.on('routeChangeComplete', (url) => {
+  Router.events.on("routeChangeComplete", (url) => {
     // console.log("Route is completed...")
-    NProgress.done()
-    setLoading(false)
-  })
+    NProgress.done();
+    setLoading(false);
+  });
 
   const breakpoints = createBreakpoints({
     sm: "320px",
@@ -70,9 +69,9 @@ function MyApp({ Component, pageProps }) {
     lg: "960px",
     xl: "1200px",
     "2xl": "1536px",
-  })
+  });
 
-  const theme = extendTheme({ breakpoints })
+  const theme = extendTheme({ breakpoints });
 
   const colortheme = extendTheme({
     colors: {
@@ -84,10 +83,9 @@ function MyApp({ Component, pageProps }) {
         200: "#0983C4",
       },
     },
-  })
+  });
 
   return (
-
     <div>
       <Head>
         <link
@@ -101,7 +99,7 @@ function MyApp({ Component, pageProps }) {
       {loading && <Loader />}
 
       <AuthProvider>
-        <ChakraProvider theme={theme, colortheme} >
+        <ChakraProvider theme={(theme, colortheme)}>
           <Layout>
             <Component {...pageProps} />
             <ScrollingButton />
@@ -113,7 +111,7 @@ function MyApp({ Component, pageProps }) {
         </ChakraProvider>
       </AuthProvider>
     </div>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

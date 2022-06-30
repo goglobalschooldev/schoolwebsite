@@ -1,32 +1,27 @@
-import { createClient } from 'contentful';
-import HomePage from '../components/Home/HomePage'
-import React, { useContext } from 'react'
+import { createClient } from "contentful";
+import HomePage from "../components/Home/HomePage";
+import React, { useContext } from "react";
 import { NextSeo } from "next-seo";
 
-
-
 export async function getStaticProps() {
-
-
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  })
+  });
 
-  const res = await client.getEntries({ content_type: "news" })
-  const teacherAPI = await client.getEntries({ content_type: "teachers" })
-  const promotion = await client.getEntries({ content_type: "promotion" })
+  const res = await client.getEntries({ content_type: "news" });
+  const teacherAPI = await client.getEntries({ content_type: "teachers" });
+  const promotion = await client.getEntries({ content_type: "promotion" });
 
   return {
     props: {
       allnews: res.items,
       allteacher: teacherAPI.items,
-      allpromotion: promotion.items
-    }
-  }
+      allpromotion: promotion.items,
+    },
+  };
 }
 export default function Home({ allnews, allteacher, allpromotion }) {
-
   return (
     <div>
       <NextSeo
@@ -53,8 +48,11 @@ export default function Home({ allnews, allteacher, allpromotion }) {
           cardType: "summary_large_image",
         }}
       />
-      <HomePage allpromotion={allpromotion} allnews={allnews} teachers={allteacher} />
+      <HomePage
+        allpromotion={allpromotion}
+        allnews={allnews}
+        teachers={allteacher}
+      />
     </div>
-  )
+  );
 }
-
